@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Cornhole Team Names</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .name-input {
+            font-size: 1.5em;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .name-input label {
+            margin-bottom: 10px;
+        }
+        .name-input input {
+            font-size: 1em;
+            padding: 5px;
+        }
+        .update-button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="name-input">
+        <label for="team1-name">Team 1 Name: </label>
+        <input type="text" id="team1-name" value="Team 1">
+    </div>
+    <div class="name-input">
+        <label for="team2-name">Team 2 Name: </label>
+        <input type="text" id="team2-name" value="Team 2">
+    </div>
+    <button class="update-button" onclick="updateTeamNames()">Update Team Names</button>
+    <script>
+        function updateTeamNames() {
+            const team1Name = document.getElementById('team1-name').value;
+            const team2Name = document.getElementById('team2-name').value;
+            
+            const teamNames = {
+                team1: team1Name,
+                team2: team2Name
+            };
+            
+            localStorage.setItem('cornholeTeamNames', JSON.stringify(teamNames));
+        }
+    </script>
+</body>
+</html>
